@@ -141,6 +141,21 @@
                     <li>
                         <a href="<?php echo e(route('producto.index')); ?>"><i class="fa fa-pie-chart"></i> <span class="nav-label">Gestionar Productos</span>  </a>
                     </li>
+                    <li>
+                        <a href="<?php echo e(route('venta.index')); ?>"><i class="fa fa-pie-chart"></i> <span class="nav-label">Gestionar Ventas</span>  </a>
+                    </li>
+                    <li>
+                        <a href="<?php echo e(route('asistencia.index')); ?>"><i class="fa fa-pie-chart"></i> <span class="nav-label">Gestionar Asistencias</span>  </a>
+                    </li>
+                    <li>
+                        <a href="<?php echo e(route('mensualidad.index')); ?>"><i class="fa fa-pie-chart"></i> <span class="nav-label">Gestionar Mensualidad</span>  </a>
+                    </li>
+                    <li>
+                        <a href="<?php echo e(route('alimentacion.index')); ?>"><i class="fa fa-pie-chart"></i> <span class="nav-label">Gestionar Alimentacion</span>  </a>
+                    </li>
+                    <li>
+                        <a href="<?php echo e(route('socio_rutina.index')); ?>"><i class="fa fa-pie-chart"></i> <span class="nav-label">Gestionar Rutinas de Socios</span>  </a>
+                    </li>
                     <?php else: ?>
                     <li>
                         <a href="<?php echo e(url('/')); ?>"><i class="fa fa-pie-chart"></i> <span class="nav-label">Inicia Sesion</span>  </a>

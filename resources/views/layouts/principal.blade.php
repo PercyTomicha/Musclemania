@@ -141,6 +141,21 @@
                     <li>
                         <a href="{{route('producto.index')}}"><i class="fa fa-pie-chart"></i> <span class="nav-label">Gestionar Productos</span>  </a>
                     </li>
+                    <li>
+                        <a href="{{route('venta.index')}}"><i class="fa fa-pie-chart"></i> <span class="nav-label">Gestionar Ventas</span>  </a>
+                    </li>
+                    <li>
+                        <a href="{{route('asistencia.index')}}"><i class="fa fa-pie-chart"></i> <span class="nav-label">Gestionar Asistencias</span>  </a>
+                    </li>
+                    <li>
+                        <a href="{{route('mensualidad.index')}}"><i class="fa fa-pie-chart"></i> <span class="nav-label">Gestionar Mensualidad</span>  </a>
+                    </li>
+                    <li>
+                        <a href="{{route('alimentacion.index')}}"><i class="fa fa-pie-chart"></i> <span class="nav-label">Gestionar Alimentacion</span>  </a>
+                    </li>
+                    <li>
+                        <a href="{{route('socio_rutina.index')}}"><i class="fa fa-pie-chart"></i> <span class="nav-label">Gestionar Rutinas de Socios</span>  </a>
+                    </li>
                     @else
                     <li>
                         <a href="{{url('/')}}"><i class="fa fa-pie-chart"></i> <span class="nav-label">Inicia Sesion</span>  </a>

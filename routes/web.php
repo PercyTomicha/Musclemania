@@ -44,5 +44,3 @@ Route::get('lugar/{nombre}','LugarOfertaController@setLugar')->name('setLugar');
 Route::get('allLugar','LugarOfertaController@showLugar')->name('showLugar');
 Route::get('deletLugar/{id}','LugarOfertaController@deletLugar')->name('deletLugar');
 Route::resource('docente', 'DocenteController');
-
-
