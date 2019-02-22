@@ -21,6 +21,8 @@ class CreateVentaTable extends Migration
             $table->integer('id_producto')->unsigned();
             $table->foreign('id_producto')->references('id')->on('producto')
                                         ->onUpdate('cascade')->onDelete('cascade');
+            $table->rememberToken();
+            $table->timestamps();
         });
     }
 

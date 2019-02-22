@@ -24,6 +24,8 @@ class CreateMensualidadTable extends Migration
             $table->integer('id_usuario')->unsigned();
             $table->foreign('id_usuario')->references('id')->on('users')
                                         ->onUpdate('cascade')->onDelete('cascade');
+            $table->rememberToken();
+            $table->timestamps();
         });
     }
 

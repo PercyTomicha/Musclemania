@@ -16,6 +16,8 @@ class CreateMaquinaTable extends Migration
         Schema::create('maquina', function (Blueprint $table) {
             $table->increments('id');
             $table->string('nombre');
+            $table->rememberToken();
+            $table->timestamps();
         });
     }
 

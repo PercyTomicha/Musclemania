@@ -22,6 +22,8 @@ class CreateSocioRutinaTable extends Migration
             $table->integer('id_rutina')->unsigned();
             $table->foreign('id_rutina')->references('id')->on('rutina')
                                         ->onUpdate('cascade')->onDelete('cascade');
+            $table->rememberToken();
+            $table->timestamps();
         });
     }
 

@@ -48,7 +48,7 @@
             </div>
             <div class="hr-line-dashed"></div>
             <div class="form-group">
-                <?php echo Form::label('email','Correo Electrónico',['class'=>'col-sm-2 control-label']); ?>
+                <?php echo Form::label('email','Correo ElectrÃ³nico',['class'=>'col-sm-2 control-label']); ?>
 
                 <div class="col-sm-8">
                     <?php echo Form::text('email',null,['class'=>'form-control','placeholder'=>'Ej. ejemplo@gmail.com','required']); ?>      

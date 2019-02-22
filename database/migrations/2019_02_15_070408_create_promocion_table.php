@@ -18,6 +18,8 @@ class CreatePromocionTable extends Migration
             $table->string('nombre');
             $table->string('descripcion');
             $table->double('precio',5,1);
+            $table->rememberToken();
+            $table->timestamps();
         });
     }
 

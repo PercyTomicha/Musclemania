@@ -1,8 +1,9 @@
 <?php $__env->startSection('content'); ?>
+	<?php if(auth()->guard()->check()): ?>
     <div>
-        <center><h6 class="logo-name">Musclemania</h6></center>
+        <center><strong><h1 style="color:white">Musclemania</h1></strong></center>
     </div>
-<div class="middle-box text-center loginscreen animated fadeInDown">
+	<div class="middle-box text-center loginscreen animated fadeInDown">
         <div>
             <h3 style="color:white">Registrate para Comenzar</h3>
 			<p style="color:white">Rellena todos los Campos</p>
@@ -80,5 +81,13 @@
 			<p class="m-t"> <small>Inspinia we app framework base on Bootstrap 3 &copy; 2014</small> </p>
         </div>
     </div>
+	<?php else: ?>
+		<center>
+			<h1 style="color:#FF5858"><strong>No tiene Acceso a esta Sección</strong></h1>
+		</center>
+		<center>
+			<a class="centrar btn btn-primary m-b" href="<?php echo e(url('/login')); ?>"><h1>Inicia Sesión</h1></a>
+		</center>
+	<?php endif; ?>
 <?php $__env->stopSection(); ?>
 <?php echo $__env->make('layouts.layoutAuth', \Illuminate\Support\Arr::except(get_defined_vars(), array('__data', '__path')))->render(); ?>

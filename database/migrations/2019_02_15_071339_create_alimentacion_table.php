@@ -16,6 +16,8 @@ class CreateAlimentacionTable extends Migration
         Schema::create('alimentacion', function (Blueprint $table) {
             $table->increments('id');
             $table->string('nombre');
+            $table->rememberToken();
+            $table->timestamps();
         });
     }
 

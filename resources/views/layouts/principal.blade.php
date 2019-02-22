@@ -138,6 +138,9 @@
                     <li>
                         <a href="{{route('usuario.index')}}"><i class="fa fa-pie-chart"></i> <span class="nav-label">Gestionar Usuarios</span>  </a>
                     </li>
+                    <li>
+                        <a href="{{route('producto.index')}}"><i class="fa fa-pie-chart"></i> <span class="nav-label">Gestionar Productos</span>  </a>
+                    </li>
                     @else
                     <li>
                         <a href="{{url('/')}}"><i class="fa fa-pie-chart"></i> <span class="nav-label">Inicia Sesion</span>  </a>

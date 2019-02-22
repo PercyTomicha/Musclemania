@@ -23,6 +23,8 @@ class CreateSocioAlimentacionTable extends Migration
             $table->integer('id_alimentacion')->unsigned();
             $table->foreign('id_alimentacion')->references('id')->on('alimentacion')
                                         ->onUpdate('cascade')->onDelete('cascade');
+            $table->rememberToken();
+            $table->timestamps();
         });
     }
 

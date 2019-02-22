@@ -19,6 +19,8 @@ class CreateEjercicioTable extends Migration
             $table->integer('id_maquina')->unsigned();
             $table->foreign('id_maquina')->references('id')->on('maquina')
                                         ->onUpdate('cascade')->onDelete('cascade');
+            $table->rememberToken();
+            $table->timestamps();
         });
     }
 

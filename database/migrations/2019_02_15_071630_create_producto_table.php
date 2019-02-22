@@ -16,6 +16,8 @@ class CreateProductoTable extends Migration
         Schema::create('producto', function (Blueprint $table) {
             $table->increments('id');
             $table->string('nombre');
+            $table->rememberToken();
+            $table->timestamps();
         });
     }
 

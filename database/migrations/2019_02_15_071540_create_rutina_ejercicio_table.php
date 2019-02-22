@@ -23,6 +23,8 @@ class CreateRutinaEjercicioTable extends Migration
             $table->integer('id_ejercicio')->unsigned();
             $table->foreign('id_ejercicio')->references('id')->on('ejercicio')
                                         ->onUpdate('cascade')->onDelete('cascade');
+            $table->rememberToken();
+            $table->timestamps();
         });
     }
 

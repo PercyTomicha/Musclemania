@@ -1,10 +1,10 @@
 <?php $__env->startSection('content'); ?>
     <div class="row wrapper border-bottom white-bg page-heading">
         <div class="col-lg-10">
-            <h2>Lista de Usuarios</h2>
+            <h2>Lista de Productos</h2>
             <ol class="breadcrumb">
                 <li><a href="/index">Inicio</a></li>
-                <li class="active"><strong>Listado de Usuarios</strong></li>
+                <li class="active"><strong>Listado de Productos</strong></li>
             </ol>
         </div>
     </div>
@@ -12,7 +12,7 @@
                 <div class="col-lg-12">
                 <div class="ibox float-e-margins">
                     <div class="ibox-title">
-                        <a href="<?php echo e(route('usuario.create')); ?>" class="btn btn-w-m btn-primary"><i class="fa fa-plus"></i> Agregar Nuevo <strong>Usuario</strong></a>
+                        <a href="<?php echo e(route('producto.create')); ?>" class="btn btn-w-m btn-primary"><i class="fa fa-plus"></i> Agregar Nuevo <strong>Producto</strong></a>
                         <div class="ibox-tools">
                             <a class="collapse-link">
                                 <i class="fa fa-chevron-up"></i>
@@ -37,13 +37,8 @@
                                 <thead>
                                     <tr>
                                         <th>Id</th>
-                                        <th>Nombres</th>
-                                        <th>Apellidos</th>
-                                        <th>Telefono</th>
-                                        <th>Fecha de Nacimiento</th>
-                                        <th>Correo Electrónico</th>
-                                        <th>Tipo</th>
-                                        <th>Estado</th>
+                                        <!--<th style="width: 64px;">Nombre</th>-->
+                                        <th>Nombre</th>
                                         <?php if(Auth::user()->tipo==1): ?>
                                             <th>Acción</th>
                                         <?php endif; ?>
@@ -51,32 +46,14 @@
                                 </thead>
                                 <tbody>
                                 <?php $i=1 ?>
-                                <?php $__currentLoopData = $usuarios; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $u): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                <?php $__currentLoopData = $productos; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $p): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                     <tr class="gradeX">
                                         <td><?php echo e($i); ?></td>
-                                        <td><?php echo e($u->nombres); ?></td>
-                                        <td><?php echo e($u->apellidos); ?></td>
-                                        <td><?php echo e($u->telefono); ?></td>
-                                        <td><?php echo e($u->fecha_nacimiento); ?></td>
-                                        <td><?php echo e($u->email); ?></td>
-                                        <?php if($u->tipo==1): ?>
-                                        	<td style="color:green;"><strong>Administrador</strong></td>
-                                        <?php else: ?>
-                                        	<?php if($u->tipo==2): ?>
-                                        		<td><strong>Socio</strong></td>
-                                        	<?php else: ?>
-                                            	<td style="color:blue;"><strong>Instructor</strong></td>
-                                            <?php endif; ?>
-                                        <?php endif; ?>
-                                        <?php if($u->estado==1): ?>
-                                        	<td style="color:green;"><strong>Activo</strong></td>
-                                        <?php else: ?>
-                                        	<td style="color:red;"><strong>Inactivo</strong></td>
-                                        <?php endif; ?>
+                                        <td><?php echo e($p->nombre); ?></td>
                                         <?php if(Auth::user()->tipo==1): ?>
                                         <td>
-                                            <a class="btn btn-w-m btn-info" href="<?php echo e(route('usuario.edit',$u->id)); ?>"><i class="fa fa-edit"></i> Editar</a>
-                                            <?php echo Form::open(['method' => 'DELETE','route' => ['usuario.destroy', $u->id],'style'=>'display:inline']); ?>
+                                            <a class="btn btn-w-m btn-info" href="<?php echo e(route('producto.edit',$p->id)); ?>"><i class="fa fa-edit"></i> Editar</a>
+                                            <?php echo Form::open(['method' => 'DELETE','route' => ['producto.destroy', $p->id],'style'=>'display:inline']); ?>
 
                                                 <?php echo Form::button('<i class="fa fa-trash-o"></i> Eliminar', ['type' => 'submit', 'class' => 'btn btn-w-m btn-danger'] ); ?>
 
@@ -85,8 +62,8 @@
                                         </td>
                                         <?php else: ?>
                                         <td style="display: none">
-                                            <a class="btn btn-w-m btn-info" href="<?php echo e(route('usuario.edit',$u->id)); ?>"><i class="fa fa-edit"></i> Editar</a>
-                                            <?php echo Form::open(['method' => 'DELETE','route' => ['usuario.destroy', $u->id],'style'=>'display:inline']); ?>
+                                            <a class="btn btn-w-m btn-info" href="<?php echo e(route('producto.edit',$p->id)); ?>"><i class="fa fa-edit"></i> Editar</a>
+                                            <?php echo Form::open(['method' => 'DELETE','route' => ['producto.destroy', $p->id],'style'=>'display:inline']); ?>
 
                                                 <?php echo Form::button('<i class="fa fa-trash-o"></i> Eliminar', ['type' => 'submit', 'class' => 'btn btn-w-m btn-danger'] ); ?>
 
@@ -101,13 +78,7 @@
                                 <tfoot>
                                     <tr>
                                         <th>Id</th>
-                                        <th>Nombres</th>
-                                        <th>Apellidos</th>
-                                        <th>Telefono</th>
-                                        <th>Fecha de Nacimiento</th>
-                                        <th>Correo Electrónico</th>
-                                        <th>Tipo</th>
-                                        <th>Estado</th>
+                                        <th>Nombre</th>
                                         <?php if(Auth::user()->tipo==1): ?>
                                             <th>Acción</th>
                                         <?php endif; ?>

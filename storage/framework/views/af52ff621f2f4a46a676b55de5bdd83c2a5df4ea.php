@@ -138,6 +138,9 @@
                     <li>
                         <a href="<?php echo e(route('usuario.index')); ?>"><i class="fa fa-pie-chart"></i> <span class="nav-label">Gestionar Usuarios</span>  </a>
                     </li>
+                    <li>
+                        <a href="<?php echo e(route('producto.index')); ?>"><i class="fa fa-pie-chart"></i> <span class="nav-label">Gestionar Productos</span>  </a>
+                    </li>
                     <?php else: ?>
                     <li>
                         <a href="<?php echo e(url('/')); ?>"><i class="fa fa-pie-chart"></i> <span class="nav-label">Inicia Sesion</span>  </a>
