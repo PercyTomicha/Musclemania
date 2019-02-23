@@ -21,6 +21,7 @@ class CreateUsersTable extends Migration
             $table->date('fecha_nacimiento');
             $table->integer('tipo')->unsigned();
             $table->boolean('estado');
+            $table->integer('estilo')->unsigned();
             $table->string('email')->unique();
             $table->string('password');
             $table->rememberToken();

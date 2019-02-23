@@ -11,7 +11,7 @@
             <form class="m-t" role="form" method="POST" action="{{ url('/login') }}">
                 {{ csrf_field() }}
                 <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                    <input id="email" type="email" class="form-control" name="email" placeholder="Código" value="{{ old('email') }}" required autofocus>
+                    <input id="email" type="email" class="form-control" name="email" placeholder="Correo Electrónico" value="{{ old('email') }}" required autofocus>
                     @if ($errors->has('email'))
                         <span class="help-block">
                             <strong>{{ $errors->first('email') }}</strong>

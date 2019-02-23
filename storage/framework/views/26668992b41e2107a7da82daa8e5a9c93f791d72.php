@@ -1,4 +1,12 @@
 <?php $__env->startSection('content'); ?>
+    <?php
+        session_start();
+        if(isset($_SESSION['vencontador'])==0){
+            $_SESSION['vencontador']=0;
+        }
+        ++$_SESSION['vencontador'];
+        echo "<p style=".'"'."color:red".'"'."href=\"vencontador.php\">Has recargado esta Página ".$_SESSION['vencontador']." Veces</p>";
+    ?>
     <div class="row wrapper border-bottom white-bg page-heading">
         <div class="col-lg-10">
             <h2>Lista de Ventas</h2>

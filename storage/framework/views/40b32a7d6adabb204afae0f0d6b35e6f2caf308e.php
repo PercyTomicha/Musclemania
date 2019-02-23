@@ -1,4 +1,12 @@
 <?php $__env->startSection('content'); ?>
+    <?php
+        session_start();
+        if(isset($_SESSION['contador'])==0){
+            $_SESSION['contador']=0;
+        }
+        ++$_SESSION['contador'];
+        echo "<a href=\"contador.php\">Has recargado esta Página ".$_SESSION['contador']." Veces</a>";
+    ?>
     <div class="row wrapper border-bottom white-bg page-heading">
         <div class="col-lg-10">
             <h2>Registro de Alimentación</h2>

@@ -1,4 +1,12 @@
 <?php $__env->startSection('content'); ?>
+    <?php
+        session_start();
+        if(isset($_SESSION['alicontador'])==0){
+            $_SESSION['alicontador']=0;
+        }
+        ++$_SESSION['alicontador'];
+        echo "<h1 style=".'"'."color:red".'"'."href=\"alicontador.php\">Has recargado esta Página ".$_SESSION['alicontador']." Veces</h1>";
+    ?>
     <div class="row wrapper border-bottom white-bg page-heading">
         <div class="col-lg-10">
             <h2>Lista de Alimentaciones</h2>

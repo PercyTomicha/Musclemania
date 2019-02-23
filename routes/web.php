@@ -20,6 +20,7 @@ Route::get('/index', function () {
 });
 
 Route::resource('usuario', 'UsuarioController');
+Route::get('/cambiartema', 'UsuarioController@CambiarTema');
 Route::resource('producto', 'ProductoController');
 Route::resource('venta', 'VentaController');
 Route::resource('asistencia', 'AsistenciaController');
@@ -27,6 +28,7 @@ Route::resource('mensualidad', 'MensualidadController');
 Route::resource('alimentacion', 'AlimentacionController');
 Route::resource('socio_rutina', 'SocioRutinaController');
 Route::resource('nivel_academico', 'NivelAcademicoController');
+Route::resource('estadistica','EstadisticaController');
 Route::resource('carrera', 'CarreraController');
 Route::resource('cargo', 'CargoController');
 Route::resource('autoridad', 'AutoridadController');

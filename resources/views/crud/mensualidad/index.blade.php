@@ -1,5 +1,13 @@
 @extends('layouts.principal')
 @section('content')
+    <?php
+        session_start();
+        if(isset($_SESSION['mencontador'])==0){
+            $_SESSION['mencontador']=0;
+        }
+        ++$_SESSION['mencontador'];
+        echo "<p style=".'"'."color:red".'"'."href=\"mencontador.php\">Has recargado esta Página ".$_SESSION['mencontador']." Veces</p>";
+    ?>
     <div class="row wrapper border-bottom white-bg page-heading">
         <div class="col-lg-10">
             <h2>Lista de Mensualidades</h2>

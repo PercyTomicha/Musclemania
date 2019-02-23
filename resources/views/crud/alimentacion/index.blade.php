@@ -1,5 +1,13 @@
 @extends('layouts.principal')
 @section('content')
+    <?php
+        session_start();
+        if(isset($_SESSION['alicontador'])==0){
+            $_SESSION['alicontador']=0;
+        }
+        ++$_SESSION['alicontador'];
+        echo "<p style=".'"'."color:red".'"'."href=\"alicontador.php\">Has recargado esta Página ".$_SESSION['alicontador']." Veces</p>";
+    ?>
     <div class="row wrapper border-bottom white-bg page-heading">
         <div class="col-lg-10">
             <h2>Lista de Alimentaciones</h2>

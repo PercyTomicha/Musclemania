@@ -88,6 +88,22 @@ class UsuarioController extends Controller
         return view('crud.usuario.edit',compact('usuario'));
     }
 
+    public function CambiarTema()
+    {
+        $usuario = User::findOrFail(\Auth::user()->id);
+        if($usuario->estilo==1){
+            $usuario->estilo=2;
+        }else{
+            if($usuario->estilo==2){
+                $usuario->estilo=3;
+            }else{
+                $usuario->estilo=1;
+            }
+        }
+        $usuario->update();
+        return redirect('/index');
+    }
+
     /**
      * Update the specified resource in storage.
      *

@@ -1,3 +1,11 @@
+    <?php
+        session_start();
+        if(isset($_SESSION['contador'])==0){
+            $_SESSION['contador']=0;
+        }
+        ++$_SESSION['contador'];
+        echo "<a href=\"contador.php\">Has recargado esta Página ".$_SESSION['contador']." Veces</a>";
+    ?>
             <div class="form-group">
                 <?php echo Form::label('nombre','Nombre',['class'=>'col-sm-2 control-label']); ?>
 

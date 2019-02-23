@@ -31,7 +31,15 @@
     <link href="{{asset('js/plugins/gritter/jquery.gritter.css')}}" rel="stylesheet">
 
     <link href="{{asset('css/animate.css')}}" rel="stylesheet">
-    <link href="{{asset('css/style.css')}}" rel="stylesheet">
+    @if(Auth::user()->estilo==1)
+        <link href="{{asset('css/style.css')}}" rel="stylesheet">
+    @else
+        @if(Auth::user()->estilo==2)
+            <link href="{{asset('css/style1.css')}}" rel="stylesheet">
+        @else
+            <link href="{{asset('css/style2.css')}}" rel="stylesheet">
+        @endif
+    @endif
 
     <!--Extras-->
     <link href="{{asset('css/plugins/dataTables/datatables.min.css')}}" rel="stylesheet">
@@ -120,8 +128,9 @@
                             <center>
                                 <img alt="image" class="img-circle" align="center" height="100" width="100" src="{{asset('images/logo.png')}}" />
                             </center>
-                             </span>
+                            </span>
                             <span class="clear"> <span style="color:whitesmoke" class="block m-t-xs"> <strong class="font-bold">GYM Musclemania</strong></span></span>
+                            <a href="/cambiartema"><span class="nav-label">Cambiar Tema</span>  </a>
                         </div>
 
                     </li>
@@ -135,6 +144,7 @@
                     </li>
                     -->
                     @auth
+                    @if(Auth::user()->tipo==1)
                     <li>
                         <a href="{{route('usuario.index')}}"><i class="fa fa-pie-chart"></i> <span class="nav-label">Gestionar Usuarios</span>  </a>
                     </li>
@@ -156,6 +166,10 @@
                     <li>
                         <a href="{{route('socio_rutina.index')}}"><i class="fa fa-pie-chart"></i> <span class="nav-label">Gestionar Rutinas de Socios</span>  </a>
                     </li>
+                    <li>
+                        <a href="{{route('estadistica.index')}}"><i class="fa fa-pie-chart"></i> <span class="nav-label">Gestionar Estadisticas</span>  </a>
+                    </li>
+                    @endif
                     @else
                     <li>
                         <a href="{{url('/')}}"><i class="fa fa-pie-chart"></i> <span class="nav-label">Inicia Sesion</span>  </a>
