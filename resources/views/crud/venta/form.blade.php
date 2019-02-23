@@ -22,6 +22,9 @@
             <div class="form-group">
                 {!!Form::label('id_producto','Producto',['class'=>'col-sm-2 control-label'])!!}
                 <div class="col-sm-4">
+                    @if($productos->count()==0)
+                        <h4 style="color:red"><strong>* No hay Productos Registrados</strong></h4>
+                    @endif
                     {!!Form::select('id_producto',$productos, null, ['class'=>'form-control','placeholder' => 'Seleccione el Producto...','id'=>'id_producto']);!!}
                 </div>
             </div>

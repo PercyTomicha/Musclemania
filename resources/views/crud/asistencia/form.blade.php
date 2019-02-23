@@ -22,6 +22,9 @@
             <div class="form-group">
                 {!!Form::label('id_usuario','Socio',['class'=>'col-sm-2 control-label'])!!}
                 <div class="col-sm-4">
+                    @if($socios->count()==0)
+                        <h4 style="color:red"><strong>* No hay Socios Registrados</strong></h4>
+                    @endif
                     {!!Form::select('id_usuario',$socios, null, ['class'=>'form-control','placeholder' => 'Seleccione el Socio...','id'=>'id_producto']);!!}
                 </div>
             </div>

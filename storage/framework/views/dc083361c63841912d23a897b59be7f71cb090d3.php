@@ -21,6 +21,9 @@
                 <?php echo Form::label('id_usuario','Socio',['class'=>'col-sm-2 control-label']); ?>
 
                 <div class="col-sm-4">
+                    <?php if($socios->count()==0): ?>
+                        <h4 style="color:red"><strong>* No hay Socios Registrados</strong></h4>
+                    <?php endif; ?>
                     <?php echo Form::select('id_usuario',$socios, null, ['class'=>'form-control','placeholder' => 'Seleccione el Socio...','id'=>'id_producto']);; ?>
 
                 </div>
@@ -30,6 +33,9 @@
                 <?php echo Form::label('id_promocion','Promocion',['class'=>'col-sm-2 control-label']); ?>
 
                 <div class="col-sm-4">
+                    <?php if($promociones->count()==0): ?>
+                        <h4 style="color:red"><strong>* No hay Promociones Registradas</strong></h4>
+                    <?php endif; ?>
                     <?php echo Form::select('id_promocion',$promociones, null, ['class'=>'form-control','placeholder' => 'Seleccione la Promocion...','id'=>'id_producto']);; ?>
 
                 </div>
