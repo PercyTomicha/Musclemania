@@ -6,11 +6,11 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use Illuminate\Database\Query\Builder;
-use App\Venta;
-use App\Producto;
+use App\Asistencia;
+use App\User;
 
 
-class VentaController extends Controller
+class AsistenciaController extends Controller
 {
     /**
      * Create a new controller instance.
@@ -29,12 +29,12 @@ class VentaController extends Controller
      */
     public function index()
     {
-        $ventas = DB::table('venta as v')
-            ->join('producto as p', 'p.id', '=', 'v.id_producto')
-            ->select('v.*','p.nombre')->get();
+        $asistencias = DB::table('asistencia as a')
+            ->join('users as u', 'u.id', '=', 'a.id_usuario')
+            ->select('a.*','u.nombres as UN','u.apellidos as UA')->get();
         //->paginate(1);
         //return view('estudiante.index',['estudiantes'=>$estudiantes]);
-        return view('crud.venta.index',compact('ventas'));
+        return view('crud.asistencia.index',compact('asistencias'));
     }
 
     /**
@@ -44,8 +44,8 @@ class VentaController extends Controller
      */
     public function create()
     {
-        $productos = Producto::pluck('nombre','id');
-        return view('crud.venta.create',compact('productos'));
+        $socios = User::where('tipo','=',2)->pluck('nombres','id');
+        return view('crud.asistencia.create',compact('socios'));
     }
 
     /**
@@ -57,16 +57,16 @@ class VentaController extends Controller
     public function store(Request $request)
     {
         $this->validate($request,[
-                'cantidad'=>'required|numeric',
-                'fecha'=>'required',
-                'precio'=>'required|numeric',
-                'id_producto'=>'required',
+            'fecha'=>'required',
+            'hora'=>'required|numeric',
+            'presencia'=>'required|numeric',
+            'id_usuario'=>'required',
         ]);
 
-        $venta= new Venta($request->all());
-        $venta->save();
-        \Flash::success("Se ha <strong>Registrado</strong> la Venta N° =><strong> ".$venta->id."</strong> de forma exitosa!");
-        return redirect('venta');
+        $asistencia= new Asistencia($request->all());
+        $asistencia->save();
+        \Flash::success("Se ha <strong>Registrado</strong> la Asistencia N° =><strong> ".$asistencia->id."</strong> de forma exitosa!");
+        return redirect('asistencia');
     }
 
     /**
@@ -88,9 +88,9 @@ class VentaController extends Controller
      */
     public function edit($id)
     {
-        $productos = Producto::pluck('nombre','id');
-        $venta = Venta::find($id);
-        return view('crud.venta.edit',compact('productos','venta'));
+        $socios = User::where('tipo','=',2)->pluck('nombres','id');
+        $asistencia = Asistencia::find($id);
+        return view('crud.asistencia.edit',compact('socios','asistencia'));
     }
 
     /**
@@ -103,15 +103,15 @@ class VentaController extends Controller
     public function update(Request $request, $id)
     {
         $this->validate($request,[
-                'cantidad'=>'required|numeric',
-                'fecha'=>'required',
-                'precio'=>'required|numeric',
-                'id_producto'=>'required',
+            'fecha'=>'required',
+            'hora'=>'required|numeric',
+            'presencia'=>'required|numeric',
+            'id_usuario'=>'required',
         ]);
-        $venta = Venta::findOrFail($id);
-        $venta->update($request->all());
-        \Flash::success("Se ha <strong>Actualizado</strong> la Venta N° =><strong> ".$venta->id."</strong> de forma exitosa!");
-        return redirect('venta');
+        $asistencia = Asistencia::findOrFail($id);
+        $asistencia->update($request->all());
+        \Flash::success("Se ha <strong>Actualizado</strong> la Asistencia N° =><strong> ".$asistencia->id."</strong> de forma exitosa!");
+        return redirect('asistencia');
     }
 
     /**
@@ -122,9 +122,9 @@ class VentaController extends Controller
      */
     public function destroy($id)
     {
-        $venta = Venta::findOrFail($id);
-        Venta::destroy($id);
-        \Flash::success("Se ha <strong>Eliminado</strong> la Venta N° =><strong> ".$venta->id."</strong> de forma exitosa!");
-        return redirect('venta');
+        $asistencia = Asistencia::findOrFail($id);
+        Asistencia::destroy($id);
+        \Flash::success("Se ha <strong>Eliminado</strong> la Asistencia N° =><strong> ".$asistencia->id."</strong> de forma exitosa!");
+        return redirect('asistencia');
     }
 }
