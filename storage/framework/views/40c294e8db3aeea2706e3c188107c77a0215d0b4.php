@@ -1,14 +1,45 @@
 <?php $__env->startSection('content'); ?>
     <?php
         session_start();
-        $con=$_SESSION['alicontador']+$_SESSION['asicontador']+$_SESSION['mencontador']+$_SESSION['procontador']+$_SESSION['soccontador']+$_SESSION['usecontador']+$_SESSION['vencontador'];
-        $c1=($_SESSION['alicontador']/$con)*100;
-        $c2=($_SESSION['asicontador']/$con)*100;
-        $c3=($_SESSION['mencontador']/$con)*100;
-        $c4=($_SESSION['procontador']/$con)*100;
-        $c5=($_SESSION['soccontador']/$con)*100;
-        $c6=($_SESSION['usecontador']/$con)*100;
-        $c7=($_SESSION['vencontador']/$con)*100;
+        $con=0;$c1=0;$c2=0;$c3=0;$c4=0;$c5=0;$c6=0;$c7=0;
+        if(isset($_SESSION['alicontador'])==0){
+            $_SESSION['alicontador']=0;
+        }
+        if(isset($_SESSION['asicontador'])==0){
+            $_SESSION['asicontador']=0;
+        }
+        if(isset($_SESSION['mencontador'])==0){
+            $_SESSION['mencontador']=0;
+        }
+        if(isset($_SESSION['procontador'])==0){
+            $_SESSION['procontador']=0;
+        }
+        if(isset($_SESSION['soccontador'])==0){
+            $_SESSION['soccontador']=0;
+        }
+        if(isset($_SESSION['usecontador'])==0){
+            $_SESSION['usecontador']=0;
+        }
+        if(isset($_SESSION['vencontador'])==0){
+            $_SESSION['vencontador']=0;
+        }
+        $c1=$_SESSION['alicontador'];
+        $c2=$_SESSION['asicontador'];
+        $c3=$_SESSION['mencontador'];
+        $c4=$_SESSION['procontador'];
+        $c5=$_SESSION['soccontador'];
+        $c6=$_SESSION['usecontador'];
+        $c7=$_SESSION['vencontador'];
+        $con=$c1+$c2+$c3+$c4+$c5+$c6+$c7;
+        if($con!=0){
+            $c1=($c1/$con)*100;
+            $c2=($c2/$con)*100;
+            $c3=($c3/$con)*100;
+            $c4=($c4/$con)*100;
+            $c5=($c5/$con)*100;
+            $c6=($c6/$con)*100;
+            $c7=($c7/$con)*100;
+        }
     ?>
     <div class="row wrapper border-bottom white-bg page-heading">
         <div class="col-lg-10">

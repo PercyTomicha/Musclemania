@@ -130,7 +130,7 @@
                             </center>
                             </span>
                             <span class="clear"> <span style="color:whitesmoke" class="block m-t-xs"> <strong class="font-bold">GYM Musclemania</strong></span></span>
-                            <a href="/cambiartema"><span class="nav-label">Cambiar Tema</span>  </a>
+                            <a href="<?php echo e(url('/cambiartema')); ?>"><span class="nav-label">Cambiar Tema</span>  </a>
                         </div>
 
                     </li>
